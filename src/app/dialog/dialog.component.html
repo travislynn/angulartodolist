@@ -1,3 +1,12 @@
-<p>
-  dialog works!
-</p>
+<md-input-container class="full-width">
+  <input mdInput [placeholder]="placeholder"
+          [(ngModel)]="value"
+          (keyup.enter)="emitValue(value)"
+          (keyup.escape)="emitValue(null)"/>
+</md-input-container>
+<button md-button (click)="emitValue(null)" color="primary">
+  {{cancelText}}
+</button>
+<button md-raised-button (click)="emitValue(value)" color="primary">
+  {{okText}}
+</button>
