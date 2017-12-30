@@ -6,11 +6,17 @@ import { ToDoItem } from '../model/ToDoItem';
 @Injectable()
 export class TodoitemService {
   private serviceUrl = `/api/ToDoApi`;
+  private items: ToDoItem[];
 
   constructor(public http: Http) { }
 
   async getToDoItems(): Promise<ToDoItem[]> {
 
+    if (!this.items) {
+      this.items = this.getSampleData();
+    }
+
+    return Promise.resolve(this.items);
 		// return await this.http.get(`${this.serviceUrl}`)
 		// 	.toPromise()
     //   .then(response => {
@@ -19,12 +25,11 @@ export class TodoitemService {
 		// 	})
     // 	.catch(this.handleError);
     
-      return Promise.resolve(this.getSampleData());
+      
     }
 
     private getSampleData() : ToDoItem[] {
       //var obj: { property: string; } = { property: "foo" };
-
       //let item1: ToDoItem = { Title: "Stuff", Description: "Stuff", Completed: false, CompletedDate: "", CreateDate: "12/2/2017" };
 
       let items: ToDoItem[] = [
@@ -37,8 +42,19 @@ export class TodoitemService {
     }
 
     async updateItem(item: ToDoItem) {
-      // TODO:
+      // TODO:  update item with the source service, if we want to update them with the api immediately.
+      // if we do batched updates, this function might not do anything
       
+      if (item.Id === -1) {
+        let maxId = this.items.reduce( (a: ToDoItem, b: ToDoItem): ToDoItem => (a.Id) > (b.Id) ? a : b ).Id;
+        let newId = maxId + 1;
+        item.Id = newId;
+      }
+    }
+
+    getNewItem(): ToDoItem {
+      let item: ToDoItem = { Id: -1, Title: "", Description: "", Completed: false, CompletedDate: "", CreateDate: "" };
+      return item;
     }
 
     private handleError(error: any): Promise<any> {

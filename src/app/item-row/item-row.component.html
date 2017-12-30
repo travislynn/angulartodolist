@@ -1,2 +1,2 @@
-  <app-item-view [task]="task" *ngIf="!editing" (onEdit)="editing = $event"></app-item-view>
-  <app-item-edit [task]="task" *ngIf="editing" (onEdit)="editing = $event"></app-item-edit>
+  <app-item-view [task]="task" *ngIf="!editing && task.Id !== -1" (onEdit)="EditItem()"></app-item-view>
+  <app-item-edit [task]="task" *ngIf="editing || task.Id === -1" (onEdit)="ProcessUpdate($event)"></app-item-edit>

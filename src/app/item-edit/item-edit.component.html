@@ -3,7 +3,8 @@
     <div class="small-2 columns"><input type="text" [(ngModel)]="task.Title" /></div>
     <div class="small-2 columns"><input type="text" [(ngModel)]="task.Description" /></div>
     <div class="small-2 columns">{{task.CreateDate}}</div>
-    <div class="small-4 columns">
+    <div class="small-2 columns"><input type="checkbox" [(ngModel)]="task.Completed" /></div>
+    <div class="small-2 columns">
       <a (click)="CancelEdit()" class="button">Cancel</a>
       <a (click)="SaveEdit()" class="button">Save</a>
     </div>

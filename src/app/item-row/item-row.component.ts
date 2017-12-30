@@ -16,6 +16,22 @@ export class ItemRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  ProcessUpdate(editing: boolean) {
+    console.log(`Item-row processupdate ` + editing);
+    this.editing = false;
+    if (editing) {
+      this.save.emit(true);
+    } else {
+      this.cancel.emit(true);
+    }
+  }
+
+  EditItem() {
+    this.editing = true;
+    
   }
 
 }

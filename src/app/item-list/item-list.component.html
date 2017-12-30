@@ -1,13 +1,16 @@
 <div class="itemListTable">
   Item List Table <br/>
   <app-item-header></app-item-header>
+  <div class="row">
+      <a (click)="CreateItem()">Create Item</a>
+  </div>
   <div *ngIf="items && items.length > 0">
     <ul>
       <div *ngFor="let task of items" [hidden]="false">
-        
-          <app-item-row [task]="task" 
-                    (cancel)="onCancel($event)" 
-                    (save)="onSave($event)"></app-item-row>
+        <app-item-row [task]="task" 
+                  (cancel)="onCancel($event)" 
+                  (save)="onSave($event)"
+                  ></app-item-row>
       </div>
       </ul>
   </div>
