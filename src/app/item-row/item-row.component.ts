@@ -10,6 +10,8 @@ export class ItemRowComponent implements OnInit {
   @Input() public task: ToDoItem;
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter();
+
+  public editing: boolean = false;
   
   constructor() { }
 

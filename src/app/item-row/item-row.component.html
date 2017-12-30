@@ -1,3 +1,4 @@
-<p>
-  item-row works!
-</p>
+<div class="itemrow">
+  <app-item-view [task]="task" *ngIf="!editing" (onEdit)="editing = $event"></app-item-view>
+  <app-item-edit [task]="task" *ngIf="editing" (onEdit)="editing = $event"></app-item-edit>
+</div>

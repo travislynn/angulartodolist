@@ -12,13 +12,19 @@ import { DialogComponent } from './dialog/dialog.component';
 import { TodoitemService } from './service/todoitem.service';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemRowComponent } from './item-row/item-row.component';
+import { ItemViewComponent } from './item-view/item-view.component';
+import { ItemEditComponent } from './item-edit/item-edit.component';
+import { ItemHeaderComponent } from './item-header/item-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
     ItemListComponent,
-    ItemRowComponent
+    ItemRowComponent,
+    ItemViewComponent,
+    ItemEditComponent,
+    ItemHeaderComponent
   ],
   imports: [
     BrowserModule,

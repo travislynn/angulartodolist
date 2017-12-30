@@ -1,0 +1,10 @@
+<li class="column row item-list">
+    <div class="small-2 columns">{{task.Id}}</div>
+    <div class="small-2 columns"><input type="text" [(ngModel)]="task.Title" /></div>
+    <div class="small-2 columns"><input type="text" [(ngModel)]="task.Description" /></div>
+    <div class="small-2 columns">{{task.CreateDate}}</div>
+    <div class="small-4 columns">
+      <a (click)="CancelEdit()" class="button">Cancel</a>
+      <a (click)="SaveEdit()" class="button">Save</a>
+    </div>
+  </li>
