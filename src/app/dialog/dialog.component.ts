@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { MatInputModule, MatFormField } from "@angular/material";
+
 
 @Component({
   selector: 'app-dialog',

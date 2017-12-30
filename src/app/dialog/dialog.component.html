@@ -1,9 +1,9 @@
-<md-input-container class="full-width">
-  <input mdInput [placeholder]="placeholder"
+<mat-form-field class="full-width">
+  <input matInput [placeholder]="placeholder"
           [(ngModel)]="value"
           (keyup.enter)="emitValue(value)"
           (keyup.escape)="emitValue(null)"/>
-</md-input-container>
+</mat-form-field>
 <button md-button (click)="emitValue(null)" color="primary">
   {{cancelText}}
 </button>
