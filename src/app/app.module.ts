@@ -15,6 +15,7 @@ import { ItemRowComponent } from './item-row/item-row.component';
 import { ItemViewComponent } from './item-view/item-view.component';
 import { ItemEditComponent } from './item-edit/item-edit.component';
 import { ItemHeaderComponent } from './item-header/item-header.component';
+import { StaticVariablesService } from './service/staticvariables.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ItemHeaderComponent } from './item-header/item-header.component';
   ],
   providers: [
     TodoitemService,
+    StaticVariablesService
   ],
   bootstrap: [AppComponent]
 })

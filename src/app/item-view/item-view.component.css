@@ -1,0 +1,16 @@
+.itemview {
+    font-size: small;
+    color: black;
+    cursor: pointer;
+    box-shadow: none;
+    border-bottom: 1px solid #d4d5d5;
+    line-height: 1.3em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 40px;
+    text-align: left;
+}
+
+li.itemview:hover {
+    background-color: #edeff0; }

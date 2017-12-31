@@ -9,7 +9,8 @@ import { TodoitemService } from '../service/todoitem.service';
 })
 export class ItemEditComponent implements OnInit {
   @Input() public task: ToDoItem;
-  @Output() onEdit = new EventEmitter();
+  @Output() onCancel = new EventEmitter();
+  @Output() onSave = new EventEmitter();
   private prevTask: ToDoItem = new ToDoItem();
 
   constructor(private itemService: TodoitemService) { }
@@ -38,12 +39,12 @@ export class ItemEditComponent implements OnInit {
 
   CancelEdit() {
     this.CancelChanges();
-    this.onEdit.emit(false);
+    this.onCancel.emit(this.prevTask);
   }
 
   SaveEdit() {
     this.FormatItemForSaving();
     this.itemService.updateItem(this.task);
-    this.onEdit.emit(true);
+    this.onSave.emit(this.task);
   }
 }

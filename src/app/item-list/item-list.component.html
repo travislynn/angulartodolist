@@ -8,8 +8,8 @@
     <ul>
       <div *ngFor="let task of items" [hidden]="false">
         <app-item-row [task]="task" 
-                  (cancel)="onCancel($event)" 
-                  (save)="onSave($event)"
+                  (onCancel)="OnCancel($event)" 
+                  (onSave)="OnSave($event)"
                   ></app-item-row>
       </div>
       </ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDoItem } from '../model/ToDoItem';
+import { StaticVariablesService } from '../service/staticvariables.service';
 
 @Component({
   selector: 'app-item-row',
@@ -8,29 +9,32 @@ import { ToDoItem } from '../model/ToDoItem';
 })
 export class ItemRowComponent implements OnInit {
   @Input() public task: ToDoItem;
-  @Output() cancel = new EventEmitter();
-  @Output() save = new EventEmitter();
+  @Output() onCancel = new EventEmitter();
+  @Output() onSave = new EventEmitter();
 
   public editing: boolean = false;
   
-  constructor() { }
+  constructor(private sv: StaticVariablesService) { }
 
   ngOnInit() {
     
   }
 
-  ProcessUpdate(editing: boolean) {
-    console.log(`Item-row processupdate ` + editing);
+  OnSave(task: ToDoItem) {
     this.editing = false;
-    if (editing) {
-      this.save.emit(true);
-    } else {
-      this.cancel.emit(true);
-    }
+    this.onSave.emit(task);
   }
 
+  OnCancel(task: ToDoItem) {
+    this.editing = false;
+    this.onCancel.emit(task);
+  }
+  
   EditItem() {
-    this.editing = true;
+    if (!this.sv.itemEditing) {
+      this.editing = true;
+      this.sv.itemEditing = true;
+    }
     
   }
 
